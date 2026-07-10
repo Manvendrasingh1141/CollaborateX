@@ -21,12 +21,12 @@ function Login() {
 
 
         const fullName = `${res.data.user.firstname} ${res.data.user.lastname}`;
-        sessionStorage.setItem("username", fullName);
-        sessionStorage.setItem("email", res.data.user.email);
-
+        localStorage.setItem("username", fullName);
+        localStorage.setItem("email", res.data.user.email);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
 
         if (remember) {
-          sessionStorage.setItem("user", JSON.stringify(res.data.user));
+          localStorage.setItem("rememberEmail", res.data.user.email);
         }
 
         navigate("/");
